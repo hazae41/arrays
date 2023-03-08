@@ -13,6 +13,7 @@ npm i @hazae41/arrays
 ### Current features
 - 100% TypeScript and ESM
 - No external dependency
+- Unit-tested and benchmarked
 
 ## Usage
 
