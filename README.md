@@ -14,6 +14,9 @@ npm i @hazae41/arrays
 - 100% TypeScript and ESM
 - No external dependency
 - Unit-tested and benchmarked
+- Get the last value
+- Get a random value using Math's PRNG
+- Get a random value using WebCrypto's CSPRNG
 
 ## Usage
 
