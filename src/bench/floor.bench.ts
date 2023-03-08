@@ -11,9 +11,13 @@ const resultFloor = benchSync("Math.floor", () => {
   const x = array[Math.floor(Math.random() * array.length)]
 }, { samples })
 
+const resultNotnot = benchSync("~~", () => {
+  const x = array[~~(Math.random() * array.length)]
+}, { samples })
+
 const resultUnsign = benchSync(">>>0", () => {
   const x = array[(Math.random() * array.length) >>> 0]
 }, { samples })
 
-resultFloor.tableAndSummary(resultUnsign)
+resultFloor.tableAndSummary(resultUnsign, resultNotnot)
 

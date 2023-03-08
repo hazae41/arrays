@@ -15,7 +15,7 @@ export namespace Arrays {
    * @returns 
    */
   export function random<T>(array: readonly T[]) {
-    return array[(Math.random() * array.length) >>> 0]
+    return array[Math.floor(Math.random() * array.length)]
   }
 
   /**
