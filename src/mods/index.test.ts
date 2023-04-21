@@ -1,1 +1,1 @@
-export * from "./arrays/arrays.test.js";
+export * from "./arrays/index.test.js";

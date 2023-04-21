@@ -1,6 +1,6 @@
 import { assert, test } from "@hazae41/phobos"
 import { webcrypto } from "crypto"
-import { Arrays } from "./arrays.js"
+import { Arrays } from "./index.js"
 
 globalThis.crypto = webcrypto as any
 

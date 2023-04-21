@@ -1,6 +1,6 @@
 import { benchSync } from "@hazae41/deimos"
 import { webcrypto } from "crypto"
-import { Arrays } from "mods/arrays/arrays.js"
+import { Arrays } from "mods/arrays/index.js"
 
 globalThis.crypto = webcrypto as any
 
