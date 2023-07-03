@@ -53,3 +53,27 @@ export function cryptoRandomIndex(array: readonly unknown[]) {
   crypto.getRandomValues(values)
   return values[0] % array.length
 }
+
+/**
+ * Get a random value using Math's PRNG and delete it from the array
+ * @param array 
+ * @returns 
+ */
+export function takeRandom<T>(array: T[]) {
+  const index = randomIndex(array)
+  const element = array[index]
+  array.splice(index, 1)
+  return element
+}
+
+/**
+ * Get a random value using WebCrypto's CSPRNG and delete it from the array
+ * @param array 
+ * @returns 
+ */
+export function takeCryptoRandom<T>(array: T[]) {
+  const index = cryptoRandomIndex(array)
+  const element = array[index]
+  array.splice(index, 1)
+  return element
+}
