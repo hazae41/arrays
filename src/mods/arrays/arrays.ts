@@ -6,7 +6,7 @@
 export function last<T>(array: readonly T[]) {
   if (array.length === 0)
     return undefined
-  return array.at(lastIndex(array))
+  return array[lastIndex(array)]
 }
 
 /**
@@ -26,7 +26,7 @@ export function lastIndex(array: readonly unknown[]) {
 export function random<T>(array: readonly T[]) {
   if (array.length === 0)
     return undefined
-  return array.at(randomIndex(array))
+  return array[randomIndex(array)]
 }
 
 /**
@@ -46,7 +46,7 @@ export function randomIndex(array: readonly unknown[]) {
 export function cryptoRandom<T>(array: readonly T[]) {
   if (array.length === 0)
     return undefined
-  return array.at(cryptoRandomIndex(array))
+  return array[cryptoRandomIndex(array)]
 }
 
 /**
@@ -68,13 +68,8 @@ export function cryptoRandomIndex(array: readonly unknown[]) {
 export function takeRandom<T>(array: T[]) {
   if (array.length === 0)
     return undefined
-
   const index = randomIndex(array)
-  const element = array.at(index)
-
-  if (element === undefined)
-    return undefined
-
+  const element = array[index]
   array.splice(index, 1)
   return element
 }
@@ -87,13 +82,8 @@ export function takeRandom<T>(array: T[]) {
 export function takeCryptoRandom<T>(array: T[]) {
   if (array.length === 0)
     return undefined
-
   const index = cryptoRandomIndex(array)
-  const element = array.at(index)
-
-  if (element === undefined)
-    return undefined
-
+  const element = array[index]
   array.splice(index, 1)
   return element
 }

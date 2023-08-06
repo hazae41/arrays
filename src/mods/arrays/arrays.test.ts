@@ -6,6 +6,6 @@ globalThis.crypto = webcrypto as any
 
 test("cryptoRandom", async ({ test }) => {
   const array = [0, 1, 2, 3, 4, 5]
-  const result = Arrays.cryptoRandom(array)
+  const result = Arrays.cryptoRandom(array)!
   assert(array.includes(result))
 })
