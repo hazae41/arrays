@@ -13,8 +13,7 @@
   "sideEffects": false,
   "files": [
     "./dist/esm",
-    "./dist/cjs",
-    "./dist/types"
+    "./dist/cjs"
   ],
   "scripts": {
     "build": "rimraf dist && rollup -c",
