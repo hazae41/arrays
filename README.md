@@ -17,6 +17,7 @@ npm i @hazae41/arrays
 - Get the last value
 - Get a random value using Math's PRNG
 - Get a random value using WebCrypto's CSPRNG
+- Sized types `ArrayLike<T,N>` and `Array<T,N>`
 
 ## Usage
 
