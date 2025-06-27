@@ -1,1 +1,1 @@
-export * from "./bench/index.bench.js";
+export { };
