@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@hazae41/arrays",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Utilities to deal with arrays",
   "homepage": "https://github.com/hazae41/arrays",
   "repository": "github:hazae41/arrays",
