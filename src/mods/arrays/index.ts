@@ -5,7 +5,7 @@ import { Nullable } from "libs/nullable/index.js"
  * @param array 
  * @returns 
  */
-export function getLastIndex(array: readonly unknown[]): number {
+export function getLastIndex(array: ArrayLike<unknown>): number {
   return array.length - 1
 }
 
@@ -14,7 +14,7 @@ export function getLastIndex(array: readonly unknown[]): number {
  * @param array 
  * @returns 
  */
-export function getRandomIndex(array: readonly unknown[]): number {
+export function getRandomIndex(array: ArrayLike<unknown>): number {
   return Math.floor(Math.random() * array.length)
 }
 
@@ -23,30 +23,30 @@ export function getRandomIndex(array: readonly unknown[]): number {
  * @param array 
  * @returns 
  */
-export function getCryptoRandomIndex(array: readonly unknown[]): number {
+export function getCryptoRandomIndex(array: ArrayLike<unknown>): number {
   const values = new Uint32Array(1)
   crypto.getRandomValues(values)
   return values[0] % array.length
 }
 
-export function getOrNull<T>(array: readonly T[], index: number): Nullable<T> {
-  return array.at(index)
+export function getOrNull<T>(array: ArrayLike<T>, index: number): Nullable<T> {
+  return array[index]
 }
 
-export function getOrThrow<T>(array: readonly T[], index: number): T {
-  const value = array.at(index)
+export function getOrThrow<T>(array: ArrayLike<T>, index: number): NonNullable<T> {
+  const value = getOrNull(array, index)
 
-  if (value === undefined)
+  if (value == null)
     throw new Error()
 
   return value
 }
 
-export function getFirstOrNull<T>(array: readonly T[]): Nullable<T> {
+export function getFirstOrNull<T>(array: ArrayLike<T>): Nullable<T> {
   return getOrNull(array, 0)
 }
 
-export function getFirstOrThrow<T>(array: readonly T[]): T {
+export function getFirstOrThrow<T>(array: ArrayLike<T>): NonNullable<T> {
   return getOrThrow(array, 0)
 }
 
@@ -55,11 +55,11 @@ export function getFirstOrThrow<T>(array: readonly T[]): T {
  * @param array 
  * @returns 
  */
-export function getLastOrNull<T>(array: readonly T[]): Nullable<T> {
+export function getLastOrNull<T>(array: ArrayLike<T>): Nullable<T> {
   return getOrNull(array, getLastIndex(array))
 }
 
-export function getLastOrThrow<T>(array: readonly T[]): T {
+export function getLastOrThrow<T>(array: ArrayLike<T>): NonNullable<T> {
   return getOrThrow(array, getLastIndex(array))
 }
 
@@ -68,11 +68,11 @@ export function getLastOrThrow<T>(array: readonly T[]): T {
  * @param array 
  * @returns 
  */
-export function getRandomOrNull<T>(array: readonly T[]): Nullable<T> {
+export function getRandomOrNull<T>(array: ArrayLike<T>): Nullable<T> {
   return getOrNull(array, getRandomIndex(array))
 }
 
-export function getRandomOrThrow<T>(array: readonly T[]): T {
+export function getRandomOrThrow<T>(array: ArrayLike<T>): NonNullable<T> {
   return getOrThrow(array, getRandomIndex(array))
 }
 
@@ -81,11 +81,11 @@ export function getRandomOrThrow<T>(array: readonly T[]): T {
  * @param array 
  * @returns 
  */
-export function getCryptoRandomOrNull<T>(array: readonly T[]): Nullable<T> {
+export function getCryptoRandomOrNull<T>(array: ArrayLike<T>): Nullable<T> {
   return getOrNull(array, getCryptoRandomIndex(array))
 }
 
-export function getCryptoRandomOrThrow<T>(array: readonly T[]): T {
+export function getCryptoRandomOrThrow<T>(array: ArrayLike<T>): NonNullable<T> {
   return getOrThrow(array, getCryptoRandomIndex(array))
 }
 
@@ -94,7 +94,7 @@ export function getCryptoRandomOrThrow<T>(array: readonly T[]): T {
  * @param array 
  * @returns 
  */
-export function takeRandomOrNull<T>(array: T[]): Nullable<T> {
+export function takeRandomOrNull<T>(array: Array<T>): Nullable<T> {
   const index = getRandomIndex(array)
   const element = getOrNull(array, index)
   array.splice(index, 1)
@@ -106,7 +106,7 @@ export function takeRandomOrNull<T>(array: T[]): Nullable<T> {
  * @param array 
  * @returns 
  */
-export function takeCryptoRandomOrNull<T>(array: T[]): Nullable<T> {
+export function takeCryptoRandomOrNull<T>(array: Array<T>): Nullable<T> {
   const index = getCryptoRandomIndex(array)
   const element = getOrNull(array, index)
   array.splice(index, 1)
